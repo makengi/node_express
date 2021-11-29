@@ -1,0 +1,5 @@
+# Ignore modules files
+./node_modules/*
+
+#ignore modules
+node_modules/

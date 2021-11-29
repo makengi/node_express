@@ -1,0 +1,46 @@
+{
+  "name": "express-demo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/bin/www",
+  "scripts": {
+    "start": "npx @babel/nodemon ts-node index"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@types/winston": "^2.4.4",
+    "body-parser": "^1.19.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.3",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.8.0",
+    "tsconfig-paths": "^3.12.0",
+    "typedi": "^0.8.0",
+    "typeorm": "^0.2.32",
+    "typeorm-typedi-extensions": "^0.2.3",
+    "typeorm-naming-strategies": "^2.0.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/register": "^7.16.0",
+    "@babel/runtime": "^7.16.3",
+    "@types/node": "^16.11.10",
+    "babel-loader": "^8.2.3",
+    "nodemon": "^2.0.15"
+  }
+}
