@@ -14,4 +14,12 @@ export class StudentDto{
         dto.isActive = isActive;
     }
 
+    public toEntity(){
+        return StudentEntity.create(
+            this.firstName,this.lastName,this.isActive
+        )
+    }
+
+
+
 }

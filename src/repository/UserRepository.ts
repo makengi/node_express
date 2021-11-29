@@ -15,6 +15,23 @@ export class UserRepository extends Repository<StudentEntity>{
         return this.find();
     }
 
+    insertStudent(student:StudentEntity){
+        return this.createQueryBuilder()
+                    .insert()
+                    .into(StudentEntity)
+                    .values({
+                        firstName:student.firstName,
+                        lastName:student.lastName,
+                        isActive:student.isActive
+                    })
+    }
+
+    saveStudent(student:StudentEntity){
+        return this.manager.save(student);
+    }
+
+
+
     findById(id:number){
         return this.createQueryBuilder("student")
             .where("student.id=:id",{id})

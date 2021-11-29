@@ -34,7 +34,7 @@ let StudentService = class StudentService {
     }
     save(student) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.studentRepository.saveStudent(student.toEntity());
+            return yield this.studentRepository(student.toEntity());
         });
     }
     search(id) {

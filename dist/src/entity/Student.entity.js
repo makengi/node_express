@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var StudentEntity_1;
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { BaseTimeEntity } from "../entity/BaseTimeEntity";
+import { BaseTimeEntity } from "../../dist/entity/BaseTimeEntity";
 let StudentEntity = StudentEntity_1 = class StudentEntity extends BaseTimeEntity {
     constructor() {
         super();

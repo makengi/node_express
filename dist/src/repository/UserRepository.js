@@ -16,19 +16,6 @@ let UserRepository = class UserRepository extends Repository {
     findAllStudents() {
         return this.find();
     }
-    insertStudent(student) {
-        return this.createQueryBuilder()
-            .insert()
-            .into(StudentEntity)
-            .values({
-            firstName: student.firstName,
-            lastName: student.lastName,
-            isActive: student.isActive
-        });
-    }
-    saveStudent(student) {
-        return this.manager.save(student);
-    }
     findById(id) {
         return this.createQueryBuilder("student")
             .where("student.id=:id", { id })

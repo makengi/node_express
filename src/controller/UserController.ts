@@ -6,16 +6,17 @@ import {StudentDto} from "../model/StudentDto";
 @JsonController("/students")
 export class UserController{
 
-    private readonly service:StudentService;
+    private service:StudentService;
 
     constructor() {
         this.service = Container.get(StudentService);
     }
 
     @HttpCode(200)
-    @Post()
+    @Post('/student')
     public async save(@Body() createStudent:StudentDto ){
-
+        console.log(createStudent);
+        return await this.service.save(createStudent);
     }
 
 
