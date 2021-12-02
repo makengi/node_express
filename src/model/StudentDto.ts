@@ -5,7 +5,8 @@ export class StudentDto{
 
     private firstName: string;
     private lastName: string;
-    private isActive:boolean;
+    private isActive: boolean;
+
 
     static create(firstName:string, lastName:string, isActive:boolean){
         let dto = new StudentDto();

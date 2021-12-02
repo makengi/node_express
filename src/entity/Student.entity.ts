@@ -1,5 +1,6 @@
-import {BaseEntity, Entity,Column, PrimaryGeneratedColumn} from 'typeorm';
+import {BaseEntity, Entity, Column, PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
 import {BaseTimeEntity} from "../entity/BaseTimeEntity";
+import {Auth} from "./Auth";
 
 
 @Entity()
@@ -16,6 +17,10 @@ export class StudentEntity extends BaseTimeEntity{
 
     @Column()
     isActive: boolean;
+
+    @ManyToOne(type=>Auth, (auth)=>auth.students)
+    auth:Auth;
+
 
     constructor() {
         super();

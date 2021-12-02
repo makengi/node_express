@@ -22,8 +22,8 @@ useContainer(Container);
 
 createConnection().catch((error)=>console.log(error));
 
-
 const app = express();
+
 useExpressServer(app,{
   controllers:[UserController]
 });

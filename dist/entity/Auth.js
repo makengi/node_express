@@ -7,45 +7,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var StudentEntity_1;
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BaseTimeEntity } from "../entity/BaseTimeEntity";
-import { Auth } from "./Auth";
-let StudentEntity = StudentEntity_1 = class StudentEntity extends BaseTimeEntity {
+import { StudentEntity } from "./Student.entity";
+let Auth = class Auth extends BaseTimeEntity {
     constructor() {
         super();
     }
-    static create(firstName, lastName, isActive) {
-        const student = new StudentEntity_1();
-        student.firstName = firstName;
-        student.lastName = lastName;
-        student.isActive = isActive;
-        return student;
+    static create(name) {
     }
 };
 __decorate([
     PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], StudentEntity.prototype, "id", void 0);
+], Auth.prototype, "id", void 0);
 __decorate([
     Column(),
     __metadata("design:type", String)
-], StudentEntity.prototype, "firstName", void 0);
-__decorate([
-    Column(),
-    __metadata("design:type", String)
-], StudentEntity.prototype, "lastName", void 0);
+], Auth.prototype, "name", void 0);
 __decorate([
     Column(),
     __metadata("design:type", Boolean)
-], StudentEntity.prototype, "isActive", void 0);
+], Auth.prototype, "isActive", void 0);
 __decorate([
-    ManyToOne(type => Auth, (auth) => auth.students),
-    __metadata("design:type", Auth)
-], StudentEntity.prototype, "auth", void 0);
-StudentEntity = StudentEntity_1 = __decorate([
+    OneToMany((type) => StudentEntity, (student) => student.auth),
+    __metadata("design:type", Array)
+], Auth.prototype, "students", void 0);
+Auth = __decorate([
     Entity(),
     __metadata("design:paramtypes", [])
-], StudentEntity);
-export { StudentEntity };
-//# sourceMappingURL=Student.entity.js.map
+], Auth);
+export { Auth };
+//# sourceMappingURL=Auth.js.map
