@@ -18,12 +18,23 @@ export class Auth extends BaseTimeEntity{
     @OneToMany((type)=>StudentEntity,(student)=>student.auth)
     students: StudentEntity[];
 
+    @Column()
+    orderIndex: number;
+
+    @Column()
+    code:string;
+
+
     constructor() {
         super();
     }
 
-    static create(name:string,){
-
-
+    static create(name:string,isActive:boolean,orderIndex:number,code:string){
+        const auth = new Auth();
+        auth.name  = name;
+        auth.isActive = isActive;
+        auth.orderIndex = orderIndex;
+        auth.code = code;
+        return auth;
     }
 }

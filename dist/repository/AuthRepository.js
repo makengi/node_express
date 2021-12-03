@@ -4,12 +4,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -19,34 +13,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var _a;
-import { UserRepository } from "../../dist/repository/UserRepository";
-import { Service } from "typedi";
-import { InjectRepository } from "typeorm-typedi-extensions";
-let StudentService = class StudentService {
-    constructor(studentRepository) {
-        this.studentRepository = studentRepository;
-    }
-    findAll() {
+import { EntityRepository, Repository } from "typeorm";
+import { Auth } from "../entity/Auth";
+let AuthRepository = class AuthRepository extends Repository {
+    saveAuthEntity(auth) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.studentRepository.findAllStudents();
+            return this.save(auth);
         });
     }
-    save(student) {
+    saveAuthEntityUsingManager(auth) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.studentRepository(student.toEntity());
+            return this.manager.save(auth);
         });
     }
-    search(id) {
+    createAuths(authsArrays) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.studentRepository.findById(id);
+            console.log(authsArrays);
+            yield this.createQueryBuilder()
+                .insert()
+                .into(Auth)
+                .values(authsArrays).execute();
         });
     }
 };
-StudentService = __decorate([
-    Service(),
-    __param(0, InjectRepository()),
-    __metadata("design:paramtypes", [typeof (_a = typeof UserRepository !== "undefined" && UserRepository) === "function" ? _a : Object])
-], StudentService);
-export { StudentService };
-//# sourceMappingURL=StudentService.js.map
+AuthRepository = __decorate([
+    EntityRepository(Auth)
+], AuthRepository);
+export { AuthRepository };
+//# sourceMappingURL=AuthRepository.js.map

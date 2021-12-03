@@ -12,10 +12,11 @@ export class AuthRepository extends Repository<Auth>{
     }
 
     async createAuths(authsArrays:Array<Auth>){
-        const auths = this.create(authsArrays);
-        return this.save(auths);
+        console.log(authsArrays);
+        await this.createQueryBuilder()
+            .insert()
+            .into(Auth)
+            .values(authsArrays).execute();
     }
-
-
 
 }

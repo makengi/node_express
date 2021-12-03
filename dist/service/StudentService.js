@@ -19,8 +19,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var _a;
-import { UserRepository } from "../../dist/repository/UserRepository";
+import { UserRepository } from "../repository/UserRepository";
 import { Service } from "typedi";
 import { InjectRepository } from "typeorm-typedi-extensions";
 let StudentService = class StudentService {
@@ -46,7 +45,7 @@ let StudentService = class StudentService {
 StudentService = __decorate([
     Service(),
     __param(0, InjectRepository()),
-    __metadata("design:paramtypes", [typeof (_a = typeof UserRepository !== "undefined" && UserRepository) === "function" ? _a : Object])
+    __metadata("design:paramtypes", [UserRepository])
 ], StudentService);
 export { StudentService };
 //# sourceMappingURL=StudentService.js.map

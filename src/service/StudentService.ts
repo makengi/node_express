@@ -1,4 +1,4 @@
-import {UserRepository} from "../../dist/repository/UserRepository";
+import {UserRepository} from "../repository/UserRepository";
 import {Service} from "typedi"
 import {InjectRepository} from "typeorm-typedi-extensions";
 import {StudentEntity} from "../entity/Student.entity";

@@ -7,18 +7,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var Auth_1;
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BaseTimeEntity } from "../entity/BaseTimeEntity";
 import { StudentEntity } from "./Student.entity";
-let Auth = class Auth extends BaseTimeEntity {
+let Auth = Auth_1 = class Auth extends BaseTimeEntity {
     constructor() {
         super();
     }
-    static create(name) {
+    static create(name, isActive, orderIndex, code) {
+        const auth = new Auth_1();
+        auth.name = name;
+        auth.isActive = isActive;
+        auth.orderIndex = orderIndex;
+        auth.code = code;
+        return auth;
     }
 };
 __decorate([
-    PrimaryGeneratedColumn(),
+    PrimaryGeneratedColumn({ type: "int", name: "id" }),
     __metadata("design:type", Number)
 ], Auth.prototype, "id", void 0);
 __decorate([
@@ -33,7 +40,15 @@ __decorate([
     OneToMany((type) => StudentEntity, (student) => student.auth),
     __metadata("design:type", Array)
 ], Auth.prototype, "students", void 0);
-Auth = __decorate([
+__decorate([
+    Column(),
+    __metadata("design:type", Number)
+], Auth.prototype, "orderIndex", void 0);
+__decorate([
+    Column(),
+    __metadata("design:type", String)
+], Auth.prototype, "code", void 0);
+Auth = Auth_1 = __decorate([
     Entity(),
     __metadata("design:paramtypes", [])
 ], Auth);

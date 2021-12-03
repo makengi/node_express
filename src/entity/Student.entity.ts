@@ -26,6 +26,7 @@ export class StudentEntity extends BaseTimeEntity{
         super();
     }
 
+
     static create(firstName:string, lastName:string, isActive:boolean){
         const student = new StudentEntity();
         student.firstName=firstName;

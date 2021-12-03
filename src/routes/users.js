@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
 router.get("/findAll",async (req, res) => {
 
   const connection = getConnection();
+  console.log(connection);
   const studentRepository = connection.getCustomRepository(UserRepository);
   const student = studentRepository.create({
     firstName: "Alex",
